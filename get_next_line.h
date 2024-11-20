@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:20:44 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/19 15:06:39 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:14:31 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 # include <stdlib.h>
 # include <limits.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 char	*get_next_line(int fd);
-char	*check_new_line(char *line);
+char	*extract_line(char *line);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *s);
-char	*skip_new_line(char *line);
+char	*trim_to_next_line(char *line);
 char	*ft_strdup(char *s);
 void	ft_strcopy(char *dst, char *src);
 
