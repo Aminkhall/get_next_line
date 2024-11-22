@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:59:45 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/20 18:11:20 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:57:13 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ size_t	ft_strlen(const char *s);
 char	*trim_to_next_line(char *line);
 char	*ft_strdup(char *s);
 void	ft_strcopy(char *dst, char *src);
+void	free_str(char **str);
 
 #endif

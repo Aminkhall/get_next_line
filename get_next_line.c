@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:20:13 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/20 18:13:37 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:58:30 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ char	*buf_alloc(size_t size)
 	return (buf);
 }
 
+void	free_str(char **str)
+{
+	free(*str);
+	*str = NULL;
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*tmp;
@@ -60,20 +66,20 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			n;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
 		return (NULL);
 	buf = buf_alloc(BUFFER_SIZE);
 	while (1)
 	{
 		n = read(fd, buf, BUFFER_SIZE);
 		if (n < 0)
-			return (free(buf), NULL);
+			return (free_str(&buf), free_str(&tmp), NULL);
 		buf[n] = '\0';
 		tmp = ft_strjoin(tmp, buf);
 		if (has_newline(tmp) || n == 0)
 			break ;
 	}
-	free(buf);
+	free_str(&buf);
 	if (!tmp)
 		return (NULL);
 	line = extract_line(tmp);

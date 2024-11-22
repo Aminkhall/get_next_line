@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:16:55 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/20 18:12:40 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:52:52 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (ft_strdup(s1));
 	result = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!result)
-		return (NULL);
+		return (free_str(&s1), NULL);
 	ft_strcopy(result, s1);
 	ft_strcopy(result + ft_strlen(s1), s2);
-	return (free(s1), result);
+	return (free_str(&s1), result);
 }
 
 char	*ft_strdup(char *s)
@@ -94,11 +94,8 @@ char	*trim_to_next_line(char *line)
 	while (line[i] && line[i] != '\n')
 		i++;
 	if (line[i] == '\0')
-	{
-		free(line);
-		return (NULL);
-	}
+		return (free_str(&line), NULL);
 	i++;
 	result = ft_strdup(line + i);
-	return (free(line), result);
+	return (free_str(&line), result);
 }
