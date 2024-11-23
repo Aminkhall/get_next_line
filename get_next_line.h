@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:20:44 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/22 13:58:51 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:26:58 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
-# include <libc.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
 
